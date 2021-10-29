@@ -1,11 +1,10 @@
-const assert = require("assert");
-const TicTacToe = require("./tic-tac-toe").TicTacToe;
 
-/*import { TicTacToe } from "./tic-tac-toe.js";*/
-
-let test = new TicTacToe();
+import { TicTacToe } from './tic-tac-toe.js';
+import assert from 'assert';
 
 /*
+let test = new TicTacToe();
+
 test.selectUpLeft();
 test.selectDownLeft();
 test.selectUpCenter();

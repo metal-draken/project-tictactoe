@@ -8,7 +8,7 @@ const players = ["player1", "player2"];
 const states = ["open", "player1won", "player2won", "draw"];
 const squareStates = ["not set", "player 1", "player 2"];
 
-class TicTacToe {
+export class TicTacToe {
   // Saninn's comment: Usually the functions should be defined AFTER the constructor... but ok...
   resetGame() {
     this.field = [
@@ -158,5 +158,3 @@ class TicTacToe {
     return newState;
   }
 }
-
-module.exports.TicTacToe = TicTacToe;
