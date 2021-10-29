@@ -52,8 +52,8 @@ class TicTacToe {
         (this.field[0][2] == "X")
     ) {
       this.currentState = states[1];
-      console.log("Player 1 has won. Reiniating the Game.");
-      this.resetGame();
+      console.log("Player 1 has won.");
+      return;
     }
 
     if (
@@ -83,8 +83,8 @@ class TicTacToe {
         (this.field[0][2] == "O")
     ) {
       this.currentState = states[2];
-      console.log("Player 2 has won. Reiniating the Game.");
-      this.resetGame();
+      console.log("Player 2 has won.");
+      return;
     }
     if (
       !this.field[0].includes(".") &
@@ -92,19 +92,19 @@ class TicTacToe {
       !this.field[2].includes(".")
     ) {
       this.currentState = states[3];
-      console.log("Draw. Reiniating the Game.");
+      console.log("Draw.");
       this.resetGame();
-    } else {
+      return;
+    } /*else {
       this.currentState = states[0];
-    }
+    }*/
   }
 
   move(a, b) {
     if (this.field[a][b] == "X" || this.field[a][b] == "O") {
-      console.log("This square is already ocupied");
-      console.table(this.field);
+      console.log("This square is already occupied");
       console.log(this.currentPlayer);
-      return "This square is already ocupied";
+      return "This square is already occupied";
     }
     if (this.currentPlayer == players[0]) {
       this.field[a][b] = "X";
@@ -120,39 +120,57 @@ class TicTacToe {
   }
 
   selectUpLeft() {
-    this.move(0, 0);
+    const newState = this.move(0, 0);
     this.gameState();
+    return newState;
   }
+
   selectUpCenter() {
-    this.move(0, 1);
+    const newState = this.move(0, 1);
     this.gameState();
+    return newState;
   }
+
   selectUpRight() {
-    this.move(0, 2);
+    const newState = this.move(0, 2);
     this.gameState();
+    return newState;
   }
+
   selectCenterLeft() {
-    this.move(1, 0);
+    const newState = this.move(1, 0);
     this.gameState();
+    return newState;
   }
+
   selectCenterCenter() {
-    this.move(1, 1);
+    const newState = this.move(1, 1);
     this.gameState();
+    return newState;
   }
+
   selectCenterRight() {
-    this.move(1, 2);
+    const newState = this.move(1, 2);
     this.gameState();
+    return newState;
   }
+
   selectDownLeft() {
-    this.move(2, 0), this.gameState();
+    const newState = this.move(2, 0);
+    this.gameState();
+    return newState;
   }
+
   selectDownCenter() {
-    this.move(2, 1);
+    const newState = this.move(2, 1);
     this.gameState();
+    return newState;
   }
+
   selectDownRight() {
-    this.move(2, 2);
+    const newState = this.move(2, 2);
     this.gameState();
+    return newState;
   }
 
   /*
