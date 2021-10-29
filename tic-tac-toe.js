@@ -102,20 +102,20 @@ class TicTacToe {
   move(a, b) {
     if (this.field[a][b] == "X" || this.field[a][b] == "O") {
       console.log("This square is already ocupied");
+      console.table(this.field);
+      console.log(this.currentPlayer);
       return "This square is already ocupied";
-      console.table(ticTacToe.field);
-      console.log(ticTacToe.currentPlayer);
     }
     if (this.currentPlayer == players[0]) {
       this.field[a][b] = "X";
       this.currentPlayer = players[1];
-      console.table(ticTacToe.field);
-      console.log(ticTacToe.currentPlayer);
+      console.table(this.field);
+      console.log(this.currentPlayer);
     } else {
       this.field[a][b] = "O";
       this.currentPlayer = players[0];
-      console.table(ticTacToe.field);
-      console.log(ticTacToe.currentPlayer);
+      console.table(this.field);
+      console.log(this.currentPlayer);
     }
   }
 
@@ -173,20 +173,4 @@ class TicTacToe {
     */
 }
 
-let ticTacToe = new TicTacToe();
-
-ticTacToe.selectUpLeft();
-ticTacToe.selectDownLeft();
-ticTacToe.selectUpCenter();
-ticTacToe.selectDownRight();
-ticTacToe.selectUpRight();
-
-ticTacToe.selectUpLeft();
-ticTacToe.selectUpCenter();
-ticTacToe.selectUpRight();
-ticTacToe.selectCenterCenter();
-ticTacToe.selectCenterRight();
-ticTacToe.selectDownRight();
-ticTacToe.selectDownCenter();
-ticTacToe.selectDownLeft();
-ticTacToe.selectCenterLeft();
+module.exports.TicTacToe = TicTacToe;
