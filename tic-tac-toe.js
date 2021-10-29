@@ -4,9 +4,21 @@ const Marks = {
   Empty: ".",
 };
 
-const players = ["player1", "player2"];
+const players = {
+  P1: "player1",
+  P2: "player2",
+};
+
+const states = {
+  open: "open",
+  P1: "player1won",
+  P2: "player2won",
+  dran: "draw",
+};
+
+/*const players = ["player1", "player2"];
 const states = ["open", "player1won", "player2won", "draw"];
-const squareStates = ["not set", "player 1", "player 2"];
+const squareStates = ["not set", "player 1", "player 2"];*/
 
 export class TicTacToe {
   // Saninn's comment: Usually the functions should be defined AFTER the constructor... but ok...
@@ -16,8 +28,8 @@ export class TicTacToe {
       [Marks.Empty, Marks.Empty, Marks.Empty],
       [Marks.Empty, Marks.Empty, Marks.Empty],
     ];
-    this.currentPlayer = players[0];
-    this.currentState = states[0];
+    this.currentPlayer = players.P1;
+    this.currentState = states.open;
   }
 
   constructor() {
@@ -60,13 +72,13 @@ export class TicTacToe {
 
   _gameState() {
     if (this._playerHasWon(Marks.P1)) {
-      this.currentState = states[1];
+      this.currentState = states.P1;
       console.log("Player 1 has won.");
       return;
     }
 
     if (this._playerHasWon(Marks.P2)) {
-      this.currentState = states[2];
+      this.currentState = states.P2;
       console.log("Player 2 has won.");
       return;
     }
@@ -76,7 +88,7 @@ export class TicTacToe {
       !this.field[1].includes(Marks.Empty) &
       !this.field[2].includes(Marks.Empty)
     ) {
-      this.currentState = states[3];
+      this.currentState = states.draw;
       console.log("Draw.");
       this.resetGame();
       return;
@@ -91,14 +103,14 @@ export class TicTacToe {
       console.log(this.currentPlayer);
       return "This square is already occupied";
     }
-    if (this.currentPlayer == players[0]) {
+    if (this.currentPlayer == players.P1) {
       this.field[a][b] = Marks.P1;
-      this.currentPlayer = players[1];
+      this.currentPlayer = players.P2;
       console.table(this.field);
       console.log(this.currentPlayer);
     } else {
       this.field[a][b] = Marks.P2;
-      this.currentPlayer = players[0];
+      this.currentPlayer = players.P1;
       console.table(this.field);
       console.log(this.currentPlayer);
     }
