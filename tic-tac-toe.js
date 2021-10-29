@@ -24,68 +24,53 @@ class TicTacToe {
     this.currentState = states[0];
   }
 
-  gameState() {
+  playerHasWon(userMark) {
+    // returns boolean
     if (
-      (this.field[0][0] == "X") &
-        (this.field[0][1] == "X") &
-        (this.field[0][2] == "X") ||
-      (this.field[1][0] == "X") &
-        (this.field[1][1] == "X") &
-        (this.field[1][2] == "X") ||
-      (this.field[2][0] == "X") &
-        (this.field[2][1] == "X") &
-        (this.field[2][2] == "X") ||
-      (this.field[0][0] == "X") &
-        (this.field[1][0] == "X") &
-        (this.field[2][0] == "X") ||
-      (this.field[0][1] == "X") &
-        (this.field[1][1] == "X") &
-        (this.field[2][1] == "X") ||
-      (this.field[0][2] == "X") &
-        (this.field[1][2] == "X") &
-        (this.field[2][2] == "X") ||
-      (this.field[0][0] == "X") &
-        (this.field[1][1] == "X") &
-        (this.field[2][2] == "X") ||
-      (this.field[2][0] == "X") &
-        (this.field[1][1] == "X") &
-        (this.field[0][2] == "X")
+      (this.field[0][0] === userMark) &
+        (this.field[0][1] === userMark) &
+        (this.field[0][2] === userMark) ||
+      (this.field[1][0] === userMark) &
+        (this.field[1][1] === userMark) &
+        (this.field[1][2] === userMark) ||
+      (this.field[2][0] === userMark) &
+        (this.field[2][1] === userMark) &
+        (this.field[2][2] === userMark) ||
+      (this.field[0][0] === userMark) &
+        (this.field[1][0] === userMark) &
+        (this.field[2][0] === userMark) ||
+      (this.field[0][1] === userMark) &
+        (this.field[1][1] === userMark) &
+        (this.field[2][1] === userMark) ||
+      (this.field[0][2] === userMark) &
+        (this.field[1][2] === userMark) &
+        (this.field[2][2] === userMark) ||
+      (this.field[0][0] === userMark) &
+        (this.field[1][1] === userMark) &
+        (this.field[2][2] === userMark) ||
+      (this.field[2][0] === userMark) &
+        (this.field[1][1] === userMark) &
+        (this.field[0][2] === userMark)
     ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  gameState() {
+    if (this.playerHasWon("X")) {
       this.currentState = states[1];
       console.log("Player 1 has won.");
       return;
     }
 
-    if (
-      (this.field[0][0] == "O") &
-        (this.field[0][1] == "O") &
-        (this.field[0][2] == "O") ||
-      (this.field[1][0] == "O") &
-        (this.field[1][1] == "O") &
-        (this.field[1][2] == "O") ||
-      (this.field[2][0] == "O") &
-        (this.field[2][1] == "O") &
-        (this.field[2][2] == "O") ||
-      (this.field[0][0] == "O") &
-        (this.field[1][0] == "O") &
-        (this.field[2][0] == "O") ||
-      (this.field[0][1] == "O") &
-        (this.field[1][1] == "O") &
-        (this.field[2][1] == "O") ||
-      (this.field[0][2] == "O") &
-        (this.field[1][2] == "O") &
-        (this.field[2][2] == "O") ||
-      (this.field[0][0] == "O") &
-        (this.field[1][1] == "O") &
-        (this.field[2][2] == "O") ||
-      (this.field[2][0] == "O") &
-        (this.field[1][1] == "O") &
-        (this.field[0][2] == "O")
-    ) {
+    if (this.playerHasWon("O")) {
       this.currentState = states[2];
       console.log("Player 2 has won.");
       return;
     }
+
     if (
       !this.field[0].includes(".") &
       !this.field[1].includes(".") &
