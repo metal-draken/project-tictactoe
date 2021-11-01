@@ -13,20 +13,16 @@ const states = {
   open: "open",
   P1: "player1won",
   P2: "player2won",
-  dran: "draw",
+  draw: "draw",
 };
-
-/*const players = ["player1", "player2"];
-const states = ["open", "player1won", "player2won", "draw"];
-const squareStates = ["not set", "player 1", "player 2"];*/
 
 export class TicTacToe {
   // Saninn's comment: Usually the functions should be defined AFTER the constructor... but ok...
   resetGame() {
     this.field = [
-      [Marks.Empty, Marks.Empty, Marks.Empty],
-      [Marks.Empty, Marks.Empty, Marks.Empty],
-      [Marks.Empty, Marks.Empty, Marks.Empty],
+      new Array(3).fill(Marks.Empty),
+      new Array(3).fill(Marks.Empty),
+      new Array(3).fill(Marks.Empty),
     ];
     this.currentPlayer = players.P1;
     this.currentState = states.open;
@@ -70,6 +66,14 @@ export class TicTacToe {
     return false;
   }
 
+  _boardIsFull() {
+    return (
+      !this.field[0].includes(Marks.Empty) &
+      !this.field[1].includes(Marks.Empty) &
+      !this.field[2].includes(Marks.Empty)
+    );
+  }
+
   _gameState() {
     if (this._playerHasWon(Marks.P1)) {
       this.currentState = states.P1;
@@ -83,22 +87,16 @@ export class TicTacToe {
       return;
     }
 
-    if (
-      !this.field[0].includes(Marks.Empty) &
-      !this.field[1].includes(Marks.Empty) &
-      !this.field[2].includes(Marks.Empty)
-    ) {
+    if (this._boardIsFull()) {
       this.currentState = states.draw;
       console.log("Draw.");
       this.resetGame();
       return;
-    } /*else {
-      this.currentState = states[0];
-    }*/
+    }
   }
 
   _move(a, b) {
-    if (this.field[a][b] == Marks.P1 || this.field[a][b] == Marks.P2) {
+    if (this.field[a][b] !== Marks.Empty) {
       console.log("This square is already occupied");
       console.log(this.currentPlayer);
       return "This square is already occupied";

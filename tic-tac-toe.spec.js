@@ -1,6 +1,5 @@
-
-import { TicTacToe } from './tic-tac-toe.js';
-import assert from 'assert';
+import { TicTacToe } from "./tic-tac-toe.js";
+import assert from "assert";
 
 /*
 let test = new TicTacToe();
