@@ -1,1 +1,32 @@
-{ "type": "module" }
+{
+  "name": "project-tictactoe",
+  "version": "1.0.0",
+  "description": "my first javascript project",
+  "main": "tic-tac-toe.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metal-draken/project-tictactoe.git"
+  },
+  "keywords": [
+    "game",
+    "tic",
+    "tac",
+    "toe",
+    "javascript"
+  ],
+  "author": "Marco Salas Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metal-draken/project-tictactoe/issues"
+  },
+  "homepage": "https://github.com/metal-draken/project-tictactoe#readme",
+  "devDependencies": {
+    "@compodoc/live-server": "^1.2.2"
+  },
+  "dependencies": {}
+}
