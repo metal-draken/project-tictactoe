@@ -1,1 +1,31 @@
-{ "type": "module" }
+{
+  "type": "module",
+  "name": "tik-tak-toe",
+  "description": "My first project",
+  "version": "1.0.0",
+  "main": "tic-tac-toe.js",
+  "scripts": {
+    "test": "ttt_game",
+    "server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metal-draken/project-tictactoe.git"
+  },
+  "keywords": [
+    "tictactoe",
+    "game",
+    "games",
+    "learningJS"
+  ],
+  "author": "MarQo Salas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metal-draken/project-tictactoe/issues"
+  },
+  "homepage": "https://github.com/metal-draken/project-tictactoe#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
