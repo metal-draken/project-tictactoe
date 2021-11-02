@@ -26,6 +26,7 @@ export class TicTacToe {
     ];
     this.currentPlayer = players.P1;
     this.currentState = states.open;
+    console.table(this.field);
   }
 
   constructor() {
@@ -90,9 +91,14 @@ export class TicTacToe {
     if (this._boardIsFull()) {
       this.currentState = states.draw;
       console.log("Draw.");
-      this.resetGame();
       return;
     }
+  }
+
+  play(coord1, coord2) {
+    const newState = this._move(coord1, coord2);
+    this._gameState();
+    return newState;
   }
 
   _move(a, b) {
@@ -113,7 +119,9 @@ export class TicTacToe {
       console.log(this.currentPlayer);
     }
   }
+}
 
+/*
   selectUpLeft() {
     const newState = this._move(0, 0);
     this._gameState();
@@ -168,3 +176,4 @@ export class TicTacToe {
     return newState;
   }
 }
+*/
