@@ -118,15 +118,26 @@ body {
   display: grid;
 }
 
-#text-game {
+#text-game-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 15%;
+  height: 78vmin;
+  width: 78vmin;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+#text-screen {
+  background-color: honeydew;
   font-size: 2.5vmin;
   text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  padding: 30px;
   margin: 10px;
-  color: white;
-  display: none;
+  color: red;
+  margin: auto;
+  top: 50%;
+  width: 60vmin;
 }
 
 button {

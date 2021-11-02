@@ -2,16 +2,6 @@ import * as TTT from "./tic-tac-toe.js";
 
 const game = new TTT.TicTacToe();
 
-const upLeft = document.querySelector("#up-left");
-const upCenter = document.querySelector("#up-center");
-const upRight = document.querySelector("#up-right");
-const centerLeft = document.querySelector("#center-left");
-const centerCenter = document.querySelector("#center-center");
-const centerRight = document.querySelector("#center-right");
-const downLeft = document.querySelector("#down-left");
-const downCenter = document.querySelector("#down-center");
-const downRight = document.querySelector("#down-right");
-
 const circleGame = document.querySelectorAll(".little-circle");
 const crossGame = document.querySelectorAll(".little-cross");
 
@@ -23,51 +13,93 @@ const resetButton = document.querySelector("button");
 const playerSign = document.querySelectorAll(".player");
 const boxes = document.querySelectorAll(".boxes");
 
-let test = () => {
-  console.log(game.field[0][0]);
-  console.log(TTT.marks.P1);
+const textWindow = document.querySelector("#text-game-container");
+const textWindowText = document.querySelector("#text-screen");
+
+let closeTextWindow = () => {
+  textWindow.onclick = function () {
+    textWindow.style.display = "none";
+  };
 };
 
-test();
+closeTextWindow();
+
+let openTextWindow = () => {
+  if (game.currentState === TTT.states.P1) {
+    textWindowText.textContent = "¡Player 1 has won!  Congratulations";
+    textWindow.style.display = "flex";
+    return;
+  }
+  if (game.currentState === TTT.states.P2) {
+    textWindowText.textContent = "¡Player 2 has won!  Congratulations";
+    textWindow.style.display = "flex";
+    return;
+  }
+  if (game.currentState === TTT.states.draw) {
+    textWindowText.textContent = "¡It's been a draw!  Try again";
+    textWindow.style.display = "flex";
+    return;
+  }
+};
+
+let openTextWindow2 = () => {
+  textWindowText.textContent = "This square is already occupied";
+  textWindow.style.display = "flex";
+  return;
+};
+
+let winners = (winnerSq1, winnerSq2, winnerSq3) => {
+  if (
+    crossGame[winnerSq1].style.display === "block" &&
+    crossGame[winnerSq2].style.display === "block" &&
+    crossGame[winnerSq3].style.display === "block"
+  ) {
+    crossGame[winnerSq1].classList.add(bigCross);
+    crossGame[winnerSq2].classList.add(bigCross);
+    crossGame[winnerSq3].classList.add(bigCross);
+    boxes[winnerSq1].classList.add(WinBox);
+    boxes[winnerSq2].classList.add(WinBox);
+    boxes[winnerSq3].classList.add(WinBox);
+    playerSign[1].style.display = "block";
+    playerSign[0].style.display = "block";
+    return;
+  }
+  if (
+    circleGame[winnerSq1].style.display === "block" &&
+    circleGame[winnerSq2].style.display === "block" &&
+    circleGame[winnerSq3].style.display === "block"
+  ) {
+    circleGame[winnerSq1].classList.add(bigCircle);
+    circleGame[winnerSq2].classList.add(bigCircle);
+    circleGame[winnerSq3].classList.add(bigCircle);
+    boxes[winnerSq1].classList.add(WinBox);
+    boxes[winnerSq2].classList.add(WinBox);
+    boxes[winnerSq3].classList.add(WinBox);
+    playerSign[1].style.display = "block";
+    playerSign[0].style.display = "block";
+    return;
+  }
+};
 
 let changeToWinSymbols = () => {
-  if (
-    game.field[0][0] === TTT.marks.P1 &&
-    game.field[0][1] === TTT.marks.P1 &&
-    game.field[0][2] === TTT.marks.P1
-  ) {
-    crossGame[0].classList.add(bigCross);
-    crossGame[1].classList.add(bigCross);
-    crossGame[2].classList.add(bigCross);
-    boxes[0].classList.add(WinBox);
-    boxes[1].classList.add(WinBox);
-    boxes[2].classList.add(WinBox);
-    playerSign[1].style.display = "block";
-    playerSign[0].style.display = "block";
-    return;
-  }
-
-  if (
-    game.field[0][0] === TTT.marks.P2 &&
-    game.field[0][1] === TTT.marks.P2 &&
-    game.field[0][2] === TTT.marks.P2
-  ) {
-    circleGame[0].classList.add(bigCircle);
-    circleGame[1].classList.add(bigCircle);
-    circleGame[2].classList.add(bigCircle);
-    boxes[0].classList.add(WinBox);
-    boxes[1].classList.add(WinBox);
-    boxes[2].classList.add(WinBox);
-    playerSign[1].style.display = "block";
-    playerSign[0].style.display = "block";
-    return;
-  }
+  winners(0, 1, 2);
+  winners(3, 4, 5);
+  winners(6, 7, 8);
+  winners(0, 3, 6);
+  winners(1, 4, 7);
+  winners(2, 5, 8);
+  winners(0, 4, 8);
+  winners(6, 4, 2);
 };
 
 boxes.forEach(function (box, index) {
   box.onclick = function () {
     const coord1 = Number(box.getAttribute("data-coord1"));
     const coord2 = Number(box.getAttribute("data-coord2"));
+    if (game.field[coord1][coord2] !== TTT.marks.Empty) {
+      openTextWindow2();
+      return;
+    }
     if (game.currentState == TTT.states.open) {
       game.play(coord1, coord2);
     }
@@ -76,6 +108,7 @@ boxes.forEach(function (box, index) {
       playerSign[0].style.display = "none";
       playerSign[1].style.display = "block";
       changeToWinSymbols();
+      openTextWindow();
       return;
     }
     if (game.field[coord1][coord2] == TTT.marks.P2) {
@@ -83,6 +116,7 @@ boxes.forEach(function (box, index) {
       playerSign[1].style.display = "none";
       playerSign[0].style.display = "block";
       changeToWinSymbols();
+      openTextWindow();
       return;
     }
   };
@@ -109,6 +143,7 @@ resetButton.onclick = function () {
   circleGame.forEach(function (box) {
     box.classList.remove(bigCircle);
   });
+  textWindow.style.display = "none";
 };
 
 /*
