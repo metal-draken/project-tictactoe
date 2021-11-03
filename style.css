@@ -1,0 +1,167 @@
+html {
+  background-color: rgba(26, 52, 59, 1);
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  background-color: rgba(32, 134, 165, 0.933);
+  width: 76vmin;
+  height: 76vmin;
+  display: grid;
+  grid-template-columns: 25vmin 25vmin 25vmin;
+  grid-template-rows: 25vmin 25vmin 25vmin;
+  grid-gap: 0.5vmin;
+}
+
+.win {
+  background-color: rgb(22, 81, 97) !important;
+}
+
+.container > div {
+  position: relative;
+  width: 25vmin;
+  height: 25vmin;
+  background-color: rgba(26, 52, 59, 1);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+}
+
+.little-circle {
+  position: absolute;
+  height: 35%;
+  width: 35%;
+  background-color: transparent;
+  border-radius: 50%;
+  border-color: rgba(41, 172, 212, 0.933);
+  border-width: 6px;
+  border-style: solid;
+  display: none;
+}
+
+.big-circle {
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  background-color: transparent;
+  border-radius: 50%;
+  border-color: rgba(202, 235, 245, 0.933);
+  border-width: 10px;
+  border-style: solid;
+  display: none;
+}
+
+.little-cross {
+  top: 0;
+  right: 0;
+  /*display: block;*/
+  display: none;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+.little-cross:before,
+.little-cross:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 120px;
+  background-color: tomato;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+  content: "";
+}
+
+.little-cross:after {
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.big-cross {
+  background-color: transparent;
+  top: 0;
+  right: 0;
+  /*display: block;*/
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+.big-cross:before,
+.big-cross:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 170px;
+  background-color: tomato;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+  content: "";
+}
+.big-cross:after {
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.general-container {
+  display: grid;
+}
+
+#text-game-container {
+  position: absolute;
+  top: 15%;
+  height: 78vmin;
+  width: 78vmin;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+#text-screen {
+  background-color: honeydew;
+  font-size: 2.5vmin;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  padding: 30px;
+  margin: 10px;
+  color: red;
+  margin: auto;
+  top: 50%;
+  width: 60vmin;
+}
+
+button {
+  margin: 3vmin;
+  height: 5vmin;
+  background-color: tomato;
+  color: white;
+  font-size: 2.5vmin;
+}
+
+.players {
+  margin: 5vmin;
+  display: flex;
+  justify-content: center;
+}
+
+.player {
+  padding: 3vmin;
+  margin: 2vmin;
+  margin: auto;
+  background-color: tomato;
+}
+
+#player2 {
+  background-color: rgba(41, 172, 212, 0.933);
+  display: none;
+}

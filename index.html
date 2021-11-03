@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>    
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="general-container">
+    <div class="players">
+        <div class="player" id="player1">Player 1 plays</div>
+        <div class="player" id="player2">Player 2 plays</div>
+       
+    </div>
+    <div class="container">
+        <div  id="up-left" class="boxes" data-coord1="0" data-coord2="0"> 
+             <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="up-center" class="boxes" data-coord1="0" data-coord2="1"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="up-right" class="boxes" data-coord1="0" data-coord2="2"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="center-left" class="boxes" data-coord1="1" data-coord2="0"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="center-center" class="boxes" data-coord1="1" data-coord2="1">  
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="center-right" class="boxes" data-coord1="1" data-coord2="2"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+   
+        <div id="down-left" class="boxes" data-coord1="2" data-coord2="0"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="down-center" class="boxes" data-coord1="2" data-coord2="1"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+
+        <div id="down-right" class="boxes" data-coord1="2" data-coord2="2"> 
+            <div class="little-circle"></div>
+            <div class="little-cross"></div>
+        </div>
+    
+    </div>  
+    <button>RESTART GAME</button>
+    </div>
+
+    <div id="text-game-container" > 
+        <div id="text-screen"> Text here </div>
+    </div>
+
+    <script type="module" src="ui.js"></script>    
+</body>
+</html>
